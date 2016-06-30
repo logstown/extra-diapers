@@ -31,5 +31,11 @@
                 <span class="item-note" ng-hide="vm.child.isTakingFormula">No</span>
                 <i class="icon ion-chevron-right icon-accessory"></i>
             </ion-item>
+            <ion-item class="item-remove-animate item-icon-right" type="item-text-wrap" ui-sref="main.clothes">
+                Clothes
+                <span class="item-note" ng-show="vm.child.needsClothes">Yes</span>
+                <span class="item-note" ng-hide="vm.child.needsClothes">No</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
     </ion-content>
 </ion-view>

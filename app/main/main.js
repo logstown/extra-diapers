@@ -97,5 +97,14 @@ angular.module('main', [
                         controller: 'FormulaCtrl'
                     }
                 }
-            });
+            })
+            .state('main.clothes', {
+                url: '/children/child/clothes',
+                views: {
+                    'pageContent': {
+                        templateUrl: 'main/templates/clothes.html',
+                        controller: 'ClothesCtrl'
+                    }
+                }
+            })
     });
