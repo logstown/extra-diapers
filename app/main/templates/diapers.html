@@ -1,0 +1,28 @@
+<ion-view view-title="Diapers">
+    <ion-content>
+        <div class="list">
+            <!-- <div class="item item-divider">
+            </div> -->
+            <div class="item item-toggle">
+                <h2>Diapers</h2>
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="child.inDiapers">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <label ng-show="child.inDiapers" class="item item-input item-select">
+                <div class="input-label">
+                    Size
+                </div>
+                <select ng-options="size as size for size in diapers.sizes" ng-model="child.diapers.size">
+                </select>
+            </label>
+            <div ng-show="child.inDiapers" class="item item-divider">
+                Preferred Brands
+            </div>
+            <ion-checkbox ng-show="child.inDiapers" ng-repeat="brand in diapers.brands">{{brand}}</ion-checkbox>
+        </div>
+    </ion-content>
+</ion-view>

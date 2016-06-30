@@ -1,0 +1,18 @@
+<ion-view>
+    <ion-nav-title>
+        <h1 class="title">Children</h1>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-compose" ng-click="vm.newChild()">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-left item-icon-right" type="item-text-wrap" ui-sref="main.child" ng-repeat="child in vm.children">
+                <i class="icon ion-ios-body"></i>
+                <h2>{{child.name}}</h2>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

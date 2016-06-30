@@ -1,0 +1,35 @@
+<ion-view view-title="{{vm.child.name || 'Child'}}">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="vm.child.name">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Birth Date</span>
+                <input type="date" ng-model="vm.child.birthDate" ng-change="vm.checkBoxes()">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Gender
+                </div>
+                <select ng-model="vm.child.gender">
+                    <option value="unspecified" selected>Unspecified</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </label>
+            <ion-item class="item-remove-animate item-icon-right" type="item-text-wrap" ui-sref="main.diapers">
+                Diapers
+                <span class="item-note" ng-show="vm.child.inDiapers">Yes</span>
+                <span class="item-note" ng-hide="vm.child.inDiapers">No</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item-remove-animate item-icon-right" type="item-text-wrap" ui-sref="main.formula">
+                Formula
+                <span class="item-note" ng-show="vm.child.isTakingFormula">Yes</span>
+                <span class="item-note" ng-hide="vm.child.isTakingFormula">No</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+    </ion-content>
+</ion-view>
