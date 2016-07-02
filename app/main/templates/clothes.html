@@ -1,0 +1,31 @@
+<ion-view view-title="Clothes">
+    <!-- do you want padding? -->
+    <ion-content class="padding">
+        <!-- content goes here -->
+        <ion-list>
+            <ion-item class="item item-divider">
+            </ion-item>
+            <ion-item class="item item-toggle">
+                <h2>Clothes</h2>
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="child.needsClothes">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </ion-item>
+            <label ng-show="child.needsClothes" class="item item-input item-select item-divider">
+                <div class="input-label">
+                    Size Range
+                </div>
+                <select ng-options="type as type for type in types" ng-model="sizeType">
+                </select>
+            </label>
+            <ion-checkbox ng-show="child.needsClothes" ng-repeat="size in clothes.sizes | filter:sizeType">{{size.name}} {{size.usSize}}</ion-checkbox>
+            <ion-item ng-show="child.needsClothes" class="item item-divider">
+                Types
+            </ion-item>
+            <ion-checkbox ng-show="child.needsClothes" ng-repeat="type in clothes.types">{{type.name}}</ion-checkbox>
+        </ion-list>
+    </ion-content>
+</ion-view>
