@@ -3,7 +3,8 @@ angular.module('main', [
         'ionic',
         'ngCordova',
         'ui.router',
-        'firebase'
+        'firebase',
+        'ionic.wizard'
         // TODO: load other modules selected during generation
     ])
     .config(function($stateProvider, $urlRouterProvider) {
@@ -33,6 +34,15 @@ angular.module('main', [
                         // $waitForAuth returns a promise so the resolve waits for it to complete
                         return Auth.$waitForSignIn();
                     }]
+                }
+            })
+            .state('main.intro', {
+                url: '/intro',
+                views: {
+                    'pageContent': {
+                        templateUrl: 'main/templates/intro.html',
+                        controller: 'IntroCtrl'
+                    }
                 }
             })
             .state('main.list', {

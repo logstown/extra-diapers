@@ -1,0 +1,131 @@
+<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button button-light" ng-click="start()">
+            Skip wizard
+        </button>
+        <button class="button button-light" ion-wizard-previous>
+            Back
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <!-- <button class="button button-light" ion-wizard-next>
+            Next
+        </button> -->
+        <button class="button button-light" ion-wizard-start="start()" condition="startCondition()">
+            Start App
+        </button>
+    </ion-nav-buttons>
+    <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
+        <ion-slide-page ion-wizard-step>
+            <ion-content class="has-header">
+                <div class="row">
+                    <div class="col col-center">
+                        <div class="card rounded">
+                            <div class="item">
+                                <h2 class="positive">Welcome to Extra Diapers!</h2>
+                            </div>
+                            <div class="item item-text-wrap">
+                                <p>Click Next to begin setting up your children.</p>
+                            </div>
+                        </div>
+                        <button class="button button-positive button-block" ion-wizard-next>
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step next-condition="child.name">
+            <ion-content class="has-header">
+                <div class="list list-inset">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Name</span>
+                        <input type="text" placeholder="Enter Child's Name" ng-model="child.name">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Date of Birth</span>
+                        <input type="date" placeholder="Click to add DOB" ng-model="child.dob">
+                    </label>
+                </div>
+                <div class="card rounded">
+                    <ion-item class="item item-divider">
+                        Gender
+                    </ion-item>
+                    <ion-radio ng-model="child.gender" ng-value="'unspecified'">Unspecified</ion-radio>
+                    <ion-radio ng-model="child.gender" ng-value="'male'">Male</ion-radio>
+                    <ion-radio ng-model="child.gender" ng-value="'female'">Female</ion-radio>
+                </div>
+                <button class="button button-positive button-block" ion-wizard-next>
+                    Next
+                </button>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step>
+            <ion-content class="has-header">
+                <!-- <div class="row"> -->
+                <div class="col col-center">
+                    <h3 class="positive">What should we look out for?</h3>
+                    <p>Check each item that applies to {{child.name}}</p>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <div class="list">
+                    <div class="item item-toggle">
+                        <h2>Diapers</h2>
+                        <label class="toggle toggle-positive">
+                            <input type="checkbox" ng-model="child.inDiapers">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="item item-toggle">
+                        <h2>Formula</h2>
+                        <label class="toggle toggle-positive">
+                            <input type="checkbox" ng-model="child.isTakingFormula">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <ion-item class="item item-toggle">
+                        <h2>Clothes</h2>
+                        <label class="toggle toggle-positive">
+                            <input type="checkbox" ng-model="child.needsClothes">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </ion-item>
+                    <ion-item class="item item-toggle">
+                        <h2>Toys</h2>
+                        <label class="toggle toggle-positive">
+                            <input type="checkbox" ng-model="child.wantsToys">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </ion-item>
+                </div>
+                <button class="button button-positive button-block" ion-wizard-next>
+                    Next
+                </button>
+                <!-- </div> -->
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step ng-if="child.inDiapers">
+            <ion-content class="has-header">
+                <h3 class="positive">Diaper Preferences</h3>
+                <diapers-prefs child="child"></diapers-prefs>
+                <button class="button button-positive button-block" ion-wizard-next>
+                    Next
+                </button>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step>
+            <ion-content class="has-header">
+                Finished!
+            </ion-content>
+        </ion-slide-page>
+    </ion-slides>
+</ion-view>

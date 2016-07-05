@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-    .controller('DiapersCtrl', function($scope, $firebaseObject) {
+    .controller('DiapersCtrl', function($scope) {
 
         console.log($scope)
 
@@ -12,12 +12,4 @@ angular.module('main')
                 brands: []
             }
         };
-
-
-        var ref = firebase.database().ref().child("diapers");
-        $scope.diapers = $firebaseObject(ref);
-
-        $scope.diapers.$loaded(function() {
-            $scope.child.diapers.size = $scope.diapers.sizes[1]
-        })
     });

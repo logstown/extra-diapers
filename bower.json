@@ -12,7 +12,8 @@
     "localforage": "~1.4.0",
     "angularfire": "^2.0.1",
     "moment": "^2.13.0",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "ionic-wizard": "^2.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.0"
