@@ -11,9 +11,23 @@ angular.module('main')
                 var ref = firebase.database().ref().child("diapers");
                 scope.diapers = $firebaseObject(ref);
 
+                scope.thing = '0';
+
                 scope.diapers.$loaded(function() {
                     scope.child.diapers.size = scope.diapers.sizes[1]
                 })
+
+                scope.getSize = function(size) {
+                    console.log(typeof(size))
+                    switch (size) {
+                        case '-1':
+                            return 'Preemie';
+                        case '0':
+                            return 'Newborn'
+                        default:
+                            return size;
+                    }
+                }
             }
         };
     });

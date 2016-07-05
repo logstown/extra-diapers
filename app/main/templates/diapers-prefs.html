@@ -1,11 +1,19 @@
 <div class="list">
-    <label class="item item-input item-select">
+    <div class="item item-divider">
+        Size: {{getSize(thing)}}
+    </div>
+    <div class="item range range-positive">
+        <i class="icon ion-ios-body"></i>
+        <input type="range" min="-1" max="7" ng-model="thing">
+        <i class="icon ion-ios-body"></i>
+    </div>
+    <!-- <label class="item item-input item-select">
         <div class="input-label">
             Size
         </div>
         <select ng-options="size as size for size in diapers.sizes" ng-model="child.diapers.size">
         </select>
-    </label>
+    </label> -->
     <div class="item item-divider">
         Preferred Brands
     </div>
